@@ -124,7 +124,7 @@ class P2 extends Component {
                     </div>
                     {carouselItems.length === 0 ?
                       <div className={classes.CarouselContainer} style={{margin: '0', justifyContent: 'center'}}>
-                        <img className={classes.Img} src={motivation}/>
+                        <img className={classes.Img} src={motivation} alt="" />
                       </div>
                       : <div className={classes.CarouselContainer}
                          style={{

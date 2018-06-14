@@ -279,6 +279,7 @@ const compare = (a, b) => {
   return 0;
 }
 // Achtung nicht-deterministisch!
+// eslint-disable-next-line
 Array.prototype.shuffle = function () {
   let m = this.length;
   while (m) {

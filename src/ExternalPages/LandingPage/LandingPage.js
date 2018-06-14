@@ -26,12 +26,12 @@ class LandingPage extends Component {
             <div className={classes.ButtonContainer}>
               <div className={classes.Item} onMouseEnter={() => this.hoverHandler(0)} onMouseLeave={() => this.hoverHandler(0)}
               onClick={() => this.props.history.push('/demo')}>
-                <img className={this.state.hover[0] ? classes.ImageHover : classes.Image} src={demoThumb}/>
+                <img className={this.state.hover[0] ? classes.ImageHover : classes.Image} src={demoThumb} alt=""/>
                 <div className={this.state.hover[0] ? classes.ItemCaptionHover : classes.ItemCaption} >Demo</div>
               </div>
               <div className={classes.Item} onMouseEnter={() => this.hoverHandler(1)} onMouseLeave={() => this.hoverHandler(1)}
                    onClick={() => this.props.history.push('/roadmap')}>
-                <img className={this.state.hover[1] ? classes.ImageHover : classes.Image} src={roadmapThumb}/>
+                <img className={this.state.hover[1] ? classes.ImageHover : classes.Image} src={roadmapThumb} alt=""/>
                 <div className={this.state.hover[1] ? classes.ItemCaptionHover : classes.ItemCaption} >Roadmap</div>
               </div>
             </div>

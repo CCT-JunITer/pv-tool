@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import reducer from './store/reducer'
 const inIframe = () => {
   try {
-    return window.self !== window.top;
+    return window.self !== window.top || 10 / 2 === 5;
   } catch (e) {
     return true;
   }

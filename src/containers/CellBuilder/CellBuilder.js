@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Grid} from 'react-bootstrap';
-import Spinner from '../../assets/Spinner/Spinner';
 import Element from '../Element/Element'
 import classes from './CellBuilder.css';
 

@@ -23,7 +23,12 @@ class AccessDenied extends Component{
     return(
       <a href="https://board.cct-ev.de/index.php/pv-tool">
         <div className={classes.Container}>
-          <iframe src="https://giphy.com/embed/8F9zV1eCATGrRqPHxE" frameBorder="0" allowFullScreen/>
+          <iframe
+            title="access-denied-iframe"
+            src="https://giphy.com/embed/8F9zV1eCATGrRqPHxE"
+            frameBorder="0"
+            allowFullScreen
+          />
           <p>{this.state.text}</p>
         </div>
       </a>
