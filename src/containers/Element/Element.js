@@ -28,23 +28,24 @@ class Element extends Component {
         let style = [classes.Element, "show-grid"].join(' ');
         if(this.state.hoverElement) style = [classes.Element, classes.Hover, "show-grid"].join(' ');
         const id = this.props.dataId
+        const pr = this.props
         const cellMap = {
-            a1: <A1 data={this.props.a1[id]}/>,
-            a2: <A2 data={this.props.a2[id]} closeSocial={this.state.hoverElement}/>,
-            p1: <P1 data={this.props.p1[id]}/>,
-            p2: <P2 data={this.props.p2[id]} closeProjects={this.state.hoverElement}/>,
-            s1: <S1 data={this.props.s1[id]}/>,
-            s2: <S2 data={this.props.s2[id]}/>,
+            a1: <A1 data={pr.a1[id]}/>,
+            a2: <A2 data={pr.a2[id]} closeSocial={this.state.hoverElement}/>,
+            p1: <P1 data={pr.p1[id]}/>,
+            p2: <P2 data={pr.p2[id]} closeProjects={this.state.hoverElement}/>,
+            s1: <S1 data={pr.s1[id]}/>,
+            s2: <S2 data={pr.s2[id]}/>,
             d1: <D1/>
         }
         return(
             <Row onMouseEnter={this.rowHoverHandler}
                  onMouseLeave={this.rowHoverHandler}
                  className={style}>
-                <Column size={this.props.mod0.size}>{cellMap[this.props.mod0.type + this.props.mod0.size]}</Column>
-                <Column size={this.props.mod1.size}>{cellMap[this.props.mod1.type + this.props.mod1.size]}</Column>
-                <Column size={this.props.mod2.size}>{cellMap[this.props.mod2.type + this.props.mod2.size]}</Column>
-                <Column size={this.props.mod3.size}>{cellMap[this.props.mod3.type + this.props.mod3.size]}</Column>
+                <Column size={pr.mod0.size}>{cellMap[pr.mod0.type + pr.mod0.size]}</Column>
+                <Column size={pr.mod1.size}>{cellMap[pr.mod1.type + pr.mod1.size]}</Column>
+                <Column size={pr.mod2.size}>{cellMap[pr.mod2.type + pr.mod2.size]}</Column>
+                <Column size={pr.mod3.size}>{cellMap[pr.mod3.type + pr.mod3.size]}</Column>
             </Row>
         );
     }

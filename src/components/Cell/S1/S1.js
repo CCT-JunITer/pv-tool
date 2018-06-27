@@ -18,8 +18,8 @@ const s1 = (props) => {
                     <div className={classes.CapitalNumber}>{data.projectsTotal}</div>
                     <p style={{display: 'inline', margin: '0'}}> externe Projekte gesamt</p></div>
                   {data.bestTypeAmount === 0 ? <div className={classes.CompartimentLeftBot}/>:
-                      <div className={classes.CompartimentLeftBot}>
-                        <p style={{margin: '0 0 0 5%', display: 'inline'}}> davon </p>
+                    <div className={classes.CompartimentLeftBot}>
+                      <p style={{margin: '0 0 0 5%', display: 'inline'}}> davon </p>
                           <div style={{fontSize: '200%', margin: '0', display: 'inline', marginRight: '5%', marginLeft: '5%', color: 'white'}}>
                             {data.bestTypeAmount}
                           </div>

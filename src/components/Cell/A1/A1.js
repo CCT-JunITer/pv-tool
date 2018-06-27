@@ -1,6 +1,6 @@
-import React from 'react';
-import cellClass from '../Cells.css';
-import classes from './A1.css';
+import React from 'react'
+import cellClass from '../Cells.css'
+import classes from './A1.css'
 
 import GeneralTopBar from '../GeneralTopBar'
 
@@ -18,4 +18,4 @@ const a1 = (props) => {
     )
 };
 
-export default a1;
+export default a1

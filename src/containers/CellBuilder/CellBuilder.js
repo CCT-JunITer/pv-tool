@@ -10,13 +10,7 @@ class CellBuilder extends Component {
         click: false,
         stepSize: 450,
         startPresentation: 0
-    };
-
-    onSpinnerClickHandler = () => {
-        const change = {click: !this.state.click, startPresentation: this.state.startPresentation + 1}
-        this.setState(change);
-    };
-
+    }
     scrollStep = () => {
         if (window.pageYOffset === 0) {
             clearInterval(this.state.intervalId);
