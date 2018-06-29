@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 import classes from './../FilterDrawer/FilterDrawer.css'
 
@@ -9,6 +10,10 @@ const universities = [
 ]
 
 class UserMaskDrawer extends Component {
+  static propTypes: {
+    open: PropTypes.bool.isRequired
+  }
+
   constructor () {
     super();
 
@@ -21,8 +26,13 @@ class UserMaskDrawer extends Component {
     }
   }
 
-  handleChange (stateCallback) {
-    return (event) => stateCallback(event.target.value);
+  handleInputChange (event) {
+    event.preventDefault();
+    const { target } = event;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({ [name]: value });
   }
 
   checkData () {
@@ -40,8 +50,9 @@ class UserMaskDrawer extends Component {
     event.preventDefault();
 
     if (this.checkData()) {
-      console.log('Everything allright');
       // here comes a callback function for submit
+      console.log('Everything allright');
+      console.dir(this.state);
     } else {
       console.log('ERROR in form arguments');
     }
@@ -67,62 +78,65 @@ class UserMaskDrawer extends Component {
       <option key={item} value={item}>{item}</option>
     ))
 
-    const changeFirstName = (value) => this.setState({ firstName: value });
-    const changeLastName = (value) => this.setState({ lastName: value });
-    const changeUserName = (value) => this.setState({ userName: value });
-    const changeUniversity = (value) => this.setState({ university: value });
-    const changeStatus = (value) => this.setState({ status: value });
-
     return (
       <div className={mergedClasses.join(' ')}>
         <h2>Benutzer erstellen</h2>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label>
-            Vorname:
+            <span className={classes.MaskLabel}>Vorname:</span>
             <input
               type="text"
+              name="firstName"
               value={firstName}
-              onChange={this.handleChange(changeFirstName)}
+              onChange={this.handleInputChange.bind(this)}
               required
             />
           </label>
 
           <label>
-            Nachname:
+            <span className={classes.MaskLabel}>Nachname:</span>
             <input
               type="text"
+              name="lastName"
               value={lastName}
-              onChange={this.handleChange(changeLastName)}
+              onChange={this.handleInputChange.bind(this)}
               required
             />
           </label>
 
           <label>
-            Benutzername:
+            <span className={classes.MaskLabel}>Benutzername:</span>
             <input
               type="text"
+              name="userName"
               value={userName}
-              onChange={this.handleChange(changeUserName)}
+              onChange={this.handleInputChange.bind(this)}
               required
             />
           </label>
 
           <label>
-            Universität/Hochschule:
-            <select value={university} onChange={this.handleChange(changeUniversity)}>
+            <span className={classes.MaskLabel}>Universität/Hochschule:</span>
+            <select
+              name="university"
+              value={university}
+              onChange={this.handleInputChange.bind(this)}
+            >
               {universityOptions}
             </select>
           </label>
 
           <label>
-            Vereinsstatus:
+            <span className={classes.MaskLabel}>Vereinsstatus:</span>
             <input
               type="text"
+              name="status"
               value={status}
-              onChange={this.handleChange(changeStatus)}
+              onChange={this.handleInputChange.bind(this)}
               required
             />
           </label>
+
           <input type="submit" value="User erstellen" />
         </form>
       </div>

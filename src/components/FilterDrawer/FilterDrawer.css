@@ -18,20 +18,18 @@
   align-items: flex-start;
 }
 
-.FilterDrawer form input {
-  margin-left: 1rem;
-}
-
-.FilterDrawer form input[type="submit"] {
-  margin-left: 0rem;
+.MaskLabel {
+  display: inline-block;
+  width: 12em;
+  margin-right: 1rem;
 }
 
 .Open {
-  opacity: 1;
+  opacity: 1.0;
 }
 
 .Close {
-  opacity: 0;
+  opacity: 0.0;
 }
 
 @media (min-width: 992px){
