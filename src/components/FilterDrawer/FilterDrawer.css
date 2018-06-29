@@ -1,29 +1,41 @@
 .FilterDrawer {
-    position: absolute;
-    width: 84%;
-    height: 70vw;
-    left: 8%;
-    top: 103px;
-    z-index: -1;
-    background-color: lightgrey;
-    border: yellow solid 10px;
-    padding: 32px 16px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-out;
+  position: absolute;
+  width: 84%;
+  left: 8%;
+  top: 103px;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0 3px 10px rgba(1, 0, 0, 0.85);
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+}
 
+.FilterDrawer form {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.FilterDrawer form input {
+  margin-left: 1rem;
+}
+
+.FilterDrawer form input[type="submit"] {
+  margin-left: 0rem;
 }
 
 .Open {
-    transform: translateY(0);
+  opacity: 1;
 }
 
 .Close {
-    transform: translateY(-100%);
+  opacity: 0;
 }
 
 @media (min-width: 992px){
-    .FilterDrawer {
-        height: 18vw;
-        top: 133px;
-    }
+  .FilterDrawer {
+    top: 133px;
+  }
 }
