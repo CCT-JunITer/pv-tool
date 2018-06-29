@@ -27,7 +27,7 @@ class Topbar extends Component {
 
   userMaskToggleHandler () {
     this.resetDrawers();
-    if (!this.state.expandUserMask) this.setState({ expandFilter: false });
+    if (!this.state.expandUserMask) this.setState({ expandUserMask: true });
   }
 
   render(){
