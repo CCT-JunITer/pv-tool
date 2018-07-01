@@ -5,18 +5,22 @@ import Dropdownbar from '../../components/DropdownBar/DropdownBar';
 import Aux from '../../hoc/AuxComponent/AuxComponent'
 import Toolbar from '../../components/ToolBar/ToolBar'
 import FilterDrawer from '../../components/FilterDrawer/FilterDrawer'
-import UserMaskDrawer from '../../components/UserMaskDrawer/UserMaskDrawer'
+import ModificationDrawer from '../../components/ModificationDrawer/ModificationDrawer'
 
 class Topbar extends Component {
-  state = {
-    expandFilter: false,
-    expandUserMask: false
-  };
+  constructor () {
+    super();
+
+    this.state = {
+      expandFilter: false,
+      expandModificationMask: true
+    };
+  }
 
   resetDrawers () {
     this.setState({
       expandFilter: false,
-      expandUserMask: false
+      expandModificationMask: false
     })
   }
 
@@ -25,9 +29,9 @@ class Topbar extends Component {
     if (!this.state.expandFilter) this.setState({ expandFilter: true });
   }
 
-  userMaskToggleHandler () {
+  modificationToggleHandler () {
     this.resetDrawers();
-    if (!this.state.expandUserMask) this.setState({ expandUserMask: true });
+    if (!this.state.expandModificationMask) this.setState({ expandModificationMask: true });
   }
 
   render(){
@@ -36,13 +40,16 @@ class Topbar extends Component {
         <Toolbar
           openFilter={this.state.expandFilter}
           filterToggle={this.filterToggelHandler.bind(this)}
-          userMaskToggle={this.userMaskToggleHandler.bind(this)}
+          userMaskToggle={this.modificationToggleHandler.bind(this)}
           style={{zIndex: '100000'}} />
         <Dropdownbar
           change={this.props.dropDownChanged}
           style={{zIndex: '100000'}} />
         <FilterDrawer open={this.state.expandFilter} />
-        <UserMaskDrawer open={this.state.expandUserMask} />
+        <ModificationDrawer
+          open={this.state.expandModificationMask}
+          handleToggle={this.modificationToggleHandler.bind(this)}
+        />
       </Aux>
     );
   }

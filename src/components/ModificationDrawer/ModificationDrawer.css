@@ -1,0 +1,78 @@
+.ModificationDrawer {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 84%;
+  left: 8%;
+  top: 103px;
+  z-index: 10;
+  background-color: #efefef;
+  box-shadow: 0 3px 10px rgba(1, 0, 0, 0.85);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.ModificationDrawer--Open {
+  display: flex;
+}
+
+.ModificationDrawer__CloseButton {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.125rem;
+  border-radius: 100%;
+  border: 0.25rem solid rgba(30, 70, 125);
+  opacity: 0.65;
+  background: inherit;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.ModificationDrawer__CloseButton:hover {
+  opacity: 1;
+}
+
+.ModificationDrawer__CloseButton > * {
+  width: 100%;
+  height: 100%;
+}
+
+.ModificationDrawer__TabNavigation {
+  display: flex;
+  align-self: stretch;
+  flex-direction: row;
+  margin: 0.5rem 0;
+}
+
+.ModificationDrawer__TabLink {
+  display: block;
+  flex-grow: 1;
+  max-width: 20rem;
+  text-align: center;
+  padding: 0.25rem;
+  margin: 0.125rem;
+  border: 0.125rem solid rgb(30, 70, 125);
+  opacity: 0.5;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.ModificationDrawer__TabLink:hover,
+.ModificationDrawer__TabLink--Selected {
+  background-color: #fff;
+  opacity: 1;
+}
+
+.ModificationDrawer__TabContent {
+  padding: 1rem;
+  border: 0.125rem solid rgb(30, 70, 125);
+  background-color: #fff;
+}
+
+@media (min-width: 992px){
+  .ModificationDrawer {
+    top: 133px;
+  }
+}
