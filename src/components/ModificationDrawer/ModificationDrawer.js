@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import UserMask from '../UserMask/UserMask'
+import ProjectMask from '../ProjectMask/ProjectMask'
+
 import CloseIcon from '../../assets/Icons/CloseIcon'
 import classes from './ModificationDrawer.css'
 
 const modificationMasks = [
   {
     name: 'Allgemeines',
-    component: (<div>Allgemeines</div>)
+    component: <UserMask />
   },
   {
     name: 'Projekte',
-    component: (<div>Projekte</div>)
+    component: <ProjectMask />
   },
   {
     name: 'Kompetenzen',
@@ -27,7 +30,6 @@ class ModificationDrawer extends Component {
 
   constructor () {
     super();
-
     this.state = { selectedTabIndex: 0 }
   }
 
@@ -82,7 +84,7 @@ class ModificationDrawer extends Component {
       classes['ModificationDrawer__TabContent']
     ].join(' ');
 
-    const selectedTabComponent = modificationMasks[selectedTabIndex].name;
+    const selectedTabComponent = modificationMasks[selectedTabIndex].component;
 
     const tabNavigation = this.getTabNavigation();
 

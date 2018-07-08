@@ -1,0 +1,32 @@
+.UserMask {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.UserMask__ImageArea {
+  padding-right: 2rem;
+  border-right: 1px solid #888;
+}
+
+.UserMask__Picture {
+  width: 15rem;
+  height: 20rem;
+  line-height: 20rem;
+  border: 0.25rem solid rgb(30, 70, 125);
+  text-align: center;
+}
+
+.UserMask__Form {
+  display: flex;
+  margin-left: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.UserMask__Label {
+  display: inline-block;
+  width: 12em;
+  margin-right: 1rem;
+}
+

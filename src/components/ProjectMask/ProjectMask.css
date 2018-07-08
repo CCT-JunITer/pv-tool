@@ -1,0 +1,18 @@
+.ProjectMask {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.ProjectMask__Form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ProjectMask__Label {
+  display: inline-block;
+  width: 12em;
+  margin-right: 1rem;
+}
+

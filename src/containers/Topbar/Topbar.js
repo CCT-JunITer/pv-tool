@@ -13,7 +13,7 @@ class Topbar extends Component {
 
     this.state = {
       expandFilter: false,
-      expandModificationMask: true
+      expandModificationMask: false
     };
   }
 

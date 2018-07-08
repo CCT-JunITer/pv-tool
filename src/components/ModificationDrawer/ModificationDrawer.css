@@ -48,7 +48,7 @@
 .ModificationDrawer__TabLink {
   display: block;
   flex-grow: 1;
-  max-width: 20rem;
+  max-width: 10rem;
   text-align: center;
   padding: 0.25rem;
   margin: 0.125rem;
@@ -68,6 +68,7 @@
 .ModificationDrawer__TabContent {
   padding: 1rem;
   border: 0.125rem solid rgb(30, 70, 125);
+  border-radius: 0.25rem;
   background-color: #fff;
 }
 
