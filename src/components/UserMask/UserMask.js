@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 
 import classes from './UserMask.css'
+import {saveUser} from "../../store/actions/actions";
 
 const universities = [
   'FU Berlin',
@@ -51,6 +53,7 @@ class UserMask extends Component {
 
     if (this.checkData()) {
       // here comes a callback function for submit
+      this.props.submitForm(this.state)
       console.log('User Masks SUBMIT')
       console.dir(this.state)
     } else {
@@ -145,4 +148,9 @@ class UserMask extends Component {
   }
 }
 
-export default UserMask
+const mapDispatchToProps = dispatch => {
+  return {
+    submitForm: user => dispatch(saveUser(user))
+  }
+}
+export default connect(null, mapDispatchToProps)(UserMask)

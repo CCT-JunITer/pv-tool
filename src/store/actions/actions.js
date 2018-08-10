@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes'
+import axios from '../../axios-instance'
 
 export const dropdownChanged = (col, element) => {
   const mod = {type: element.charAt(0), size: parseInt(element.charAt(1),10)}
@@ -9,6 +10,16 @@ export const dropdownChanged = (col, element) => {
   }
 }
 
+export const saveUser = (data) => {
+  console.log(data)
+  return dispatch => {
+    axios.put('http://localhost:8000/put', data)
+      .then(r => console.log(r))
+      .catch(e => console.log(e))
+  }
+
+
+}
 // const parseData = data => {
 //   let parsedData = []
 //   for(let i = 1; i < data.length; i++) {
