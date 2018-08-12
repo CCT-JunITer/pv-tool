@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {connect} from 'react-redux'
 
 import Layout from './hoc/Layout/Layout';
 import LandingPage from './ExternalPages/LandingPage/LandingPage'
 import Roadmap from './ExternalPages/Roadmap/Roadmap'
 import CellBuilder from './containers/CellBuilder/CellBuilder';
+import {initialQuery} from "./store/actions/actions";
 
 class App extends Component {
-
+  constructor(props) {
+    super(props)
+    this.props.init()
+  }
   render() {
     return(
       <Router>
@@ -25,5 +30,10 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    init: () => dispatch(initialQuery())
+  }
+}
 
-export default App;
+export default connect(null, mapDispatchToProps)(App)

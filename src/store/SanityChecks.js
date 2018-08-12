@@ -73,6 +73,7 @@ export const a2SanityCheck = (data, rowAmount) => {
       socials: socials
     }
   }
+
   return cleanData
 }
 
@@ -114,7 +115,7 @@ export const p2SanityCheck = (data, rowAmount) => {
           bt: typeof proj.bt === 'number' ? proj.bt : '?',
           position: typeof proj.position === 'string' ? proj.position : '',
           name: typeof proj.name === 'string' ? proj.name : 'Projekt',
-          completed: typeof proj.completed === 'string' ? projectStatus(proj.completed): 'rgba(16,187,103,0.5)'
+          completed: typeof proj.completed === 'string' ? projectStatus(proj.completed) : 'rgba(16,187,103,0.5)'
         }
       })
     } else {

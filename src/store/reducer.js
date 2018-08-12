@@ -20,21 +20,21 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CHANGE_DROPDOWN: return changeDropdown(state, action)
         case actionTypes.SORT_DATA: return sortData(state, action)
         case actionTypes.SET_DATA: return setData(state, action)
+        case actionTypes.INIT_SETUP: return  Object.assign({}, state, initSetup(state, action))
       default:
-        return sanitizeData(state)
+        return sanitizeData(state, state.rowAmount)
     }
 }
 
-const sanitizeData = state => {
-  const ra = state.rowAmount
+const sanitizeData = (data, ra) => {
   return {
-    ...state,
-    general1: a1SanityCheck(state.general1, ra),
-    general2: a2SanityCheck(state.general2, ra),
-    project1: p1SanityCheck(state.project1, ra),
-    project2: p2SanityCheck(state.project2, ra),
-    seminar1: s1SanityCheck(state.seminar1, ra),
-    seminar2: s2SanityCheck(state.seminar2, ra)
+    ...data,
+    general1: a1SanityCheck(data.general1, ra),
+    general2: a2SanityCheck(data.general2, ra),
+    project1: p1SanityCheck(data.project1, ra),
+    project2: p2SanityCheck(data.project2, ra),
+    seminar1: s1SanityCheck(data.seminar1, ra),
+    seminar2: s2SanityCheck(data.seminar2, ra)
   }
 }
 
@@ -49,6 +49,14 @@ const changeDropdown = (state, action) => {
     ...state,
     mod: newMod
   }
+}
+
+const initSetup = (state, action) => {
+  let newState = {}
+  Object.keys(action.data).forEach(dat => {
+    newState[dat] = action.data[dat]
+  })
+  return sanitizeData(newState, newState.general1.length)
 }
 
 const setData = (state, action) => {
