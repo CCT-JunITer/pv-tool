@@ -12,7 +12,9 @@ export const dropdownChanged = (col, element) => {
 
 export const saveUser = (data) => {
   return dispatch => {
-    axios.put('http://localhost:8000/put', data)
+    console.log('DATA')
+    console.log(data)
+    axios.put('http://localhost:8000/new', data)
       .then(r => console.log(r))
       .catch(e => console.log(e))
   }
@@ -27,6 +29,7 @@ export const initialQuery = () => {
 }
 
 const initialSetup = data => {
+  console.log(data)
   return {
     type: actionTypes.INIT_SETUP,
     data: data.data

@@ -1,17 +1,16 @@
 import * as actionTypes from './actions/actionTypes'
 import {a1SanityCheck, a2SanityCheck, p1SanityCheck, p2SanityCheck, s1SanityCheck, s2SanityCheck} from "./SanityChecks"
-import {a1DummyData, a2DummyData, p1DummyData, p2DummyData, s1DummyData, s2DummyData} from './DummyData'
 
 const initialState = {
 
     mod: [{type:'a', size: 2}, {type:'d', size: 0}, {type:'s', size: 1}, {type:'p', size: 1}],
-    rowAmount: 7,
-    general2: a2DummyData(),
-    general1: a1DummyData(),
-    project2: p2DummyData(),
-    project1: p1DummyData(),
-    seminar2: s2DummyData(),
-    seminar1: s1DummyData(),
+    rowAmount: 0,
+    general2: [],
+    general1: [],
+    project2: [],
+    project1: [],
+    seminar2: [],
+    seminar1: [],
 
 }
 
@@ -34,7 +33,8 @@ const sanitizeData = (data, ra) => {
     project1: p1SanityCheck(data.project1, ra),
     project2: p2SanityCheck(data.project2, ra),
     seminar1: s1SanityCheck(data.seminar1, ra),
-    seminar2: s2SanityCheck(data.seminar2, ra)
+    seminar2: s2SanityCheck(data.seminar2, ra),
+    rowAmount: ra
   }
 }
 
@@ -56,6 +56,7 @@ const initSetup = (state, action) => {
   Object.keys(action.data).forEach(dat => {
     newState[dat] = action.data[dat]
   })
+  console.log(newState)
   return sanitizeData(newState, newState.general1.length)
 }
 
@@ -88,7 +89,7 @@ const merge = (array, left, middle, right, action) => {
     const rightSide = middle + 1
     let i = 1
 
-    while( leftSide <= middle && rightSide <= right){
+    while( leftSide <= middle && rightSide <= right ){
         if(compare(array[leftSide], array[rightSide], action.key, action.set)){  //  array[leftSide] <= array[rightSide]
             temp[i] = array[leftSide]
             leftSide++
